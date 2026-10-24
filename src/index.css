@@ -1,0 +1,90 @@
+@import url('https://googleapis.com');
+
+body {
+  background-color: #fdfbf7 !important; /* Premium light cream color from your mockup pages */
+  font-family: 'Poppins', sans-serif;
+  color: #121212;
+}
+
+h1, h2, h3, h4, .font-serif {
+  font-family: 'Playfair Display', serif;
+}
+
+/* Custom dark headers for the catalog pages (Shirts, T-Shirts, Kurtas) */
+.catalog-header-banner {
+  background-color: #1a1a1a !important;
+  color: #ffffff !important;
+  padding: 60px 20px;
+  margin-bottom: 40px;
+}
+
+.catalog-header-banner h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.15em;
+  font-weight: 500;
+}
+
+.catalog-header-banner p {
+  color: #c5a880; /* Subtle gold accent */
+  font-size: 0.9rem;
+  letter-spacing: 0.05em;
+}
+
+/* Minimalist heart favorite icon anchor */
+.favorite-heart {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+  color: #a0a0a0;
+  background: white;
+  padding: 5px 8px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.favorite-heart:hover {
+  color: #dc3545;
+}
+
+/* Custom exact product label grids */
+.product-card {
+  border: none !important;
+  background: transparent !important;
+  position: relative;
+}
+
+.img-wrapper-3-4 {
+  position: relative;
+  padding-bottom: 125%; /* Clean catalog aspect ratio matching the image grids */
+  overflow: hidden;
+  background-color: #f0ede9;
+  margin-bottom: 12px;
+}
+
+.img-wrapper-3-4 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Premium custom pagination styles seen in screens 2, 3, and 4 */
+.reyasa-pagination .page-link {
+  color: #121212;
+  background-color: transparent;
+  border: none;
+  font-size: 0.85rem;
+  padding: 5px 10px;
+  margin: 0 4px;
+}
+
+.reyasa-pagination .page-item.active .page-link {
+  background-color: #dc3545 !important; /* Crimson red highlight indicator circle */
+  color: white !important;
+  border-radius: 50%;
+}
