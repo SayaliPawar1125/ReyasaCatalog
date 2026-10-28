@@ -1,0 +1,417 @@
+
+/* ==========================================
+   GLOBAL APP BACKGROUND
+   ========================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: clip;
+}
+
+body {
+  overflow-x: clip;
+}
+
+.global-app-container {
+  position: relative;
+
+  background-image: url('./assets/Background.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  min-height: 100vh;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Background Design Layer */
+
+.global-app-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  background-image: url('./assets/B2.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  opacity: 0.70;
+
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Keep App Content Above Background */
+
+.global-app-container > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Prevent Images From Exceeding Their Containers */
+
+img {
+  max-width: 100%;
+}
+
+/* ==========================================
+   COLLECTION HOVER EFFECTS
+   ========================================== */
+
+.group-hover-container {
+  overflow: hidden;
+}
+
+.group-hover-container:hover .hover-overlay {
+  opacity: 1 !important;
+}
+
+.group-hover-container:hover .transition-transform {
+  transform: scale(1.06);
+}
+
+/* ==========================================
+   BRAND STORY SECTION
+   ========================================== */
+
+#our-story {
+  width: 100%;
+  max-width: 1200px;
+
+  font-family: "Times New Roman", Times, serif !important;
+  color: #100830 !important;
+
+  margin: 100px auto 0 !important;
+
+  padding-left: 40px;
+  padding-right: 40px;
+
+  box-sizing: border-box;
+  overflow-wrap: break-word;
+}
+
+/* Story Heading */
+
+#our-story h2 {
+  font-size: clamp(2rem, 3vw, 3.5rem) !important;
+  font-weight: 800 !important;
+
+  color: #100830 !important;
+
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+  text-align: left !important;
+
+  line-height: 1.2;
+  margin-bottom: 2rem !important;
+}
+
+/* Story Content */
+
+#our-story .story-content-block {
+  text-align: justify;
+  font-weight: 700 !important;
+  color: #100830 !important;
+}
+
+#our-story .story-content-block p {
+  color: #100830 !important;
+
+  font-size: 1.25rem !important;
+  line-height: 1.9 !important;
+
+  margin-bottom: 1.75rem !important;
+
+  overflow-wrap: break-word;
+}
+
+/* Story Tagline */
+
+#our-story .story-tagline {
+  text-align: right !important;
+
+  font-size: clamp(1.5rem, 2.2vw, 2.2rem) !important;
+  font-style: italic;
+  font-weight: 700 !important;
+
+  color: #100830 !important;
+
+  margin-top: 3rem !important;
+  display: block;
+
+  overflow-wrap: break-word;
+}
+
+/* ==========================================
+   COLLECTION SECTION
+   ========================================== */
+
+#collections {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Collection Heading */
+
+#collections h2 {
+  font-size: clamp(2rem, 3vw, 3.5rem) !important;
+  font-weight: 800 !important;
+
+  color: #100830 !important;
+
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15);
+
+  text-align: left !important;
+
+  line-height: 1.2;
+  margin-bottom: 2rem !important;
+
+  overflow-wrap: break-word;
+}
+
+/* Collection Description */
+
+#collections p {
+  font-size: clamp(1rem, 1.3vw, 1.4rem) !important;
+  font-weight: 500 !important;
+
+  color: #4A4560 !important;
+
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+
+  text-align: left !important;
+
+  margin-bottom: 1.5rem !important;
+  line-height: 1.7;
+}
+
+/* Collection Cards */
+
+#collections .card {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Collection Images */
+
+#collections img {
+  max-width: 100%;
+}
+
+/* ==========================================
+   FOOTER LINK EFFECTS
+   ========================================== */
+
+.hover-white {
+  transition: color 0.2s ease-in-out;
+}
+
+.hover-white:hover {
+  color: #ffffff !important;
+}
+
+/* ==========================================
+   DESKTOP AND LAPTOP
+   ========================================== */
+
+@media (min-width: 769px) {
+
+  .global-app-container {
+    background-attachment: fixed;
+  }
+
+  .global-app-container::before {
+    background-attachment: fixed;
+  }
+
+  #our-story {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
+  #collections {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+}
+
+/* ==========================================
+   TABLET AND MOBILE
+   ========================================== */
+
+@media (max-width: 768px) {
+
+  /* Background */
+
+  .global-app-container {
+    width: 100%;
+    max-width: 100%;
+
+    background-attachment: scroll;
+    background-position: center top;
+  }
+
+  .global-app-container::before {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+
+  /* Story Section */
+
+  #our-story {
+    width: 100%;
+    max-width: 100%;
+
+    margin-top: 40px !important;
+
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+  }
+
+  #our-story h2 {
+    font-size: 2.2rem !important;
+    line-height: 1.25;
+
+    margin-bottom: 1.5rem !important;
+  }
+
+  #our-story .story-content-block {
+    text-align: left !important;
+  }
+
+  #our-story .story-content-block p {
+    font-size: 1.1rem !important;
+    line-height: 1.7 !important;
+
+    text-align: left !important;
+
+    margin-bottom: 1.25rem !important;
+  }
+
+  #our-story .story-tagline {
+    text-align: right !important;
+    font-size: 1.5rem !important;
+
+    margin-top: 2rem !important;
+  }
+
+  /* Collections */
+
+  #collections {
+    width: 100%;
+    max-width: 100%;
+
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  #collections h2 {
+    font-size: 2rem !important;
+    text-align: center !important;
+  }
+
+  #collections p {
+    font-size: 1rem !important;
+    text-align: center !important;
+  }
+
+  #collections .card {
+    width: 100%;
+    min-width: 0;
+  }
+
+  #collections img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Disable Hover Zoom on Touch Screens */
+
+  .group-hover-container:hover .transition-transform {
+    transform: none;
+  }
+
+  .group-hover-container .hover-overlay {
+    display: none;
+  }
+
+}
+
+/* ==========================================
+   SMALL MOBILE PHONES
+   ========================================== */
+
+@media (max-width: 480px) {
+
+  #our-story {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  #our-story h2 {
+    font-size: 1.8rem !important;
+  }
+
+  #our-story .story-content-block p {
+    font-size: 1rem !important;
+    line-height: 1.7 !important;
+  }
+
+  #our-story .story-tagline {
+    font-size: 1.25rem !important;
+  }
+
+  #collections {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  #collections h2 {
+    font-size: 1.75rem !important;
+  }
+
+  #collections p {
+    font-size: 0.95rem !important;
+  }
+
+}
+
+/* ==========================================
+   REDUCED MOTION ACCESSIBILITY
+   ========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .group-hover-container .hover-overlay,
+  .group-hover-container .transition-transform,
+  .hover-white {
+    transition: none !important;
+  }
+
+}

@@ -1,52 +1,100 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { productsData } from '../data/products';
+import { productsData } from '../data/Products';
+import shirtsBanner from '../assets/Shirt/HomeShirt.jpg';
 
 export default function ShirtsPage() {
-  const shirts = productsData.filter(p => p.type === 'shirt');
+  const shirts = productsData.filter(
+    (product) => product.type === 'shirt'
+  );
 
   return (
     <div className="w-100">
-      {/* Premium Dark Header Strip Panel from Image Mockup */}
-      <div className="catalog-header-banner text-center">
-        <h1 className="font-serif uppercase m-0">SHIRTS</h1>
-        <p className="fst-italic mt-2 mb-0">Classic. Versatile. Always in style.</p>
+      {/* Responsive Horizontal Banner */}
+      <div
+        className="w-100 mb-5 overflow-hidden position-relative"
+        style={{
+          height: '40vh',
+          maxHeight: '450px',
+          minHeight: '250px'
+        }}
+      >
+        <img
+          src={shirtsBanner}
+          alt="REYASA Shirts Collection"
+          className="w-100 h-100 object-fit-cover"
+          style={{ objectPosition: 'center 30%' }}
+        />
+
+        {/* Banner Text */}
+        <div
+          className="position-absolute top-0 start-0 w-100 h-100 d-flex flex-column align-items-center justify-content-center text-white"
+          style={{ backgroundColor: 'rgba(0, 0, 0, 0.25)' }}
+        >
+          <h1 className="font-serif text-uppercase m-0 display-4 fw-normal">
+            SHIRTS
+          </h1>
+
+          <p className="fst-italic mt-2 mb-0 text-white-50 small text-center px-3">
+            Classic. Versatile. Always in style.
+          </p>
+        </div>
       </div>
 
+      {/* Shirts Grid */}
       <div className="container pb-5">
-        {/* 4-Column Structured Catalog Matrix Grid */}
         <div className="row g-4">
-          {shirts.map(product => (
+          {shirts.map((product) => (
             <div key={product.id} className="col-6 col-md-3">
-              <div className="product-card">
-                {/* Heart Favorite Widget Icon */}
-                <div className="favorite-heart">
-                  <i className="bi bi-heart"></i>
-                </div>
-                
-                <Link to={`/product/${product.id}`} className="text-decoration-none text-dark">
-                  <div className="img-wrapper-3-4 shadow-sm">
-                    <img src={product.img} alt={product.name} />
+              <div className="product-card h-100 d-flex flex-column">
+                <Link
+                  to={`/product/${product.id}`}
+                  className="text-decoration-none text-dark d-flex flex-column h-100"
+                >
+                  {/* Product Image */}
+                  <div
+                    className="overflow-hidden mb-2 shadow-sm"
+                    style={{ aspectRatio: '3 / 4' }}
+                  >
+                    {product.img ? (
+                      <img
+                        src={product.img}
+                        alt={product.name}
+                        className="w-100 h-100 object-fit-cover"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <div className="w-100 h-100 bg-light d-flex align-items-center justify-content-center">
+                        <span className="text-secondary small text-center px-2">
+                          Image coming soon
+                        </span>
+                      </div>
+                    )}
                   </div>
-                  <div className="text-start ps-1">
-                    <h3 className="small fw-normal text-secondary m-0 text-truncate" style={{ fontSize: '0.85rem' }}>{product.name}</h3>
-                    <p className="fw-semibold small mt-1 text-dark">₹{product.price}</p>
+
+                  {/* Product Name */}
+                  <div className="text-start ps-1 mt-auto">
+                    <h3
+                      className="fw-normal text-secondary m-0"
+                      style={{ fontSize: '0.85rem' }}
+                    >
+                      {product.name}
+                    </h3>
                   </div>
                 </Link>
               </div>
             </div>
           ))}
-        </div>
 
-        {/* Custom Circular Pagination Navigation Setup */}
-        <nav className="mt-5 d-flex justify-content-center">
-          <ul className="pagination reyasa-pagination align-items-center">
-            <li className="page-item active"><span className="page-link cursor-pointer">1</span></li>
-            <li className="page-item"><span className="page-link cursor-pointer">2</span></li>
-            <li className="page-item"><span className="page-link cursor-pointer">3</span></li>
-            <li className="page-item"><span className="page-link cursor-pointer">&gt;</span></li>
-          </ul>
-        </nav>
+          {shirts.length === 0 && (
+            <div className="col-12 text-center py-5">
+              <p className="text-muted mb-0">
+                No shirts are available at the moment.
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
